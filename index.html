@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Result Calculator</title>
+
+<style>
+body {
+    background: #e3f2fd;
+    font-family: Arial;
+}
+
+.box {
+    width: 320px;
+    background: white;
+    padding: 20px;
+    margin: 50px auto;
+    text-align: center;
+    border-radius: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 8px;
+    margin: 6px 0;
+}
+
+button {
+    background: #2196f3;
+    color: white;
+    padding: 10px;
+    width: 95%;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1976d2;
+}
+
+.result {
+    margin-top: 15px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Student Result Calculator</h2>
+
+    <input type="text" id="name" placeholder="Student Name">
+
+    <input type="number" id="m1" placeholder="Tamil Marks">
+    <input type="number" id="m2" placeholder="English Marks">
+    <input type="number" id="m3" placeholder="Maths Marks">
+    <input type="number" id="m4" placeholder="Science Marks">
+    <input type="number" id="m5" placeholder="Social Marks">
+
+    <button onclick="calculate()">Calculate Result</button>
+
+    <div class="result" id="result"></div>
+</div>
+
+<script>
+function calculate() {
+
+    let name = document.getElementById("name").value;
+
+    let m1 = Number(document.getElementById("m1").value);
+    let m2 = Number(document.getElementById("m2").value);
+    let m3 = Number(document.getElementById("m3").value);
+    let m4 = Number(document.getElementById("m4").value);
+    let m5 = Number(document.getElementById("m5").value);
+
+    let total = m1 + m2 + m3 + m4 + m5;
+    let average = total / 5;
+
+    let result = "";
+
+    if (average >= 35)
+        result = "Pass";
+    else
+        result = "Fail";
+
+    document.getElementById("result").innerHTML =
+        "Name: " + name + "<br>" +
+        "Total: " + total + "<br>" +
+        "Average: " + average.toFixed(2) + "<br>" +
+        "Result: " + result;
+}
+</script>
+
+</body>
+</html>
